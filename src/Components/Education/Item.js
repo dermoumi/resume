@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components'
 
 const StyleBase = styled.article`
@@ -38,19 +38,16 @@ const StyleBase = styled.article`
 export default class Item extends Component {
   render() {
     let period
-    if (
-      Array.isArray(this.props.period) &&
-      typeof this.props.period[0] === 'string'
-    ) {
+    if (Array.isArray(this.props.period)) {
       period = (
-        <Fragment>
+        <span className="period">
           {this.props.period[0]}
           <span className="period-arrow"> &#xe900; </span>
           {this.props.period[1]}
-        </Fragment>
+        </span>
       )
     } else {
-      period = this.props.period
+      period = <span className="period">{this.props.period}</span>
     }
 
     return (
@@ -58,7 +55,7 @@ export default class Item extends Component {
         <div className="heading">
           <div className="title">{this.props.degree}</div>
           <div className="sub-title">
-            {this.props.info} <span className="period">{period}</span>
+            {this.props.info} {period}
           </div>
         </div>
       </StyleBase>
