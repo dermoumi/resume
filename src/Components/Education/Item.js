@@ -11,7 +11,7 @@ const StyleBase = styled.article`
   .title {
     font-size: 1.1em;
     letter-spacing: 1px;
-    line-height: 1.5rem;
+    line-height: 1.25rem;
     color: ${props => props.theme.primary};
   }
 
@@ -24,7 +24,6 @@ const StyleBase = styled.article`
 
   .period {
     font-weight: 400;
-    margin-left: 8px;
     white-space: nowrap;
     color: ${props => props.theme.accent};
   }

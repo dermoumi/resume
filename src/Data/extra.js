@@ -1,10 +1,10 @@
 export default [
   {
-    title: 'Languages',
+    label: 'Languages',
     details: 'English, French, Arabic',
   },
   {
-    title: 'Interests',
+    label: 'Interests',
     details: 'Comics, Video games, Reverse-engineering',
   },
 ]

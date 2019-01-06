@@ -8,10 +8,10 @@ const StyleBase = styled.article`
     margin-bottom: 0;
   }
 
-  .title {
+  .label {
     font-size: 1.1em;
     letter-spacing: 1px;
-    line-height: 1.5rem;
+    line-height: 1.25rem;
     color: ${props => props.theme.primary};
   }
 
@@ -28,7 +28,7 @@ export default class Item extends Component {
     return (
       <StyleBase {...this.props}>
         <div className="heading">
-          <div className="title">{this.props.title}</div>
+          <div className="label">{this.props.label}</div>
           <div className="sub-title">{this.props.details}</div>
         </div>
       </StyleBase>

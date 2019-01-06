@@ -4,21 +4,21 @@ import 'jest-styled-components'
 
 import Item from './Item'
 
-it('renders education item degree', () => {
-  const degree = 'My degree'
-  const wrapper = shallow(<Item degree={degree} />)
+it('renders experience item title', () => {
+  const title = 'My title'
+  const wrapper = shallow(<Item label={title} />)
 
-  expect(wrapper.text()).toContain(degree)
+  expect(wrapper.text()).toContain(title)
 })
 
-it('renders education item info', () => {
+it('renders experience item info', () => {
   const info = 'My info'
-  const wrapper = shallow(<Item info={info} />)
+  const wrapper = shallow(<Item subtitle={info} />)
 
   expect(wrapper.text()).toContain(info)
 })
 
-it('renders education item year', () => {
+it('renders experience item year', () => {
   const year = 1337
   const wrapper = shallow(<Item period={year} />)
 
@@ -28,7 +28,7 @@ it('renders education item year', () => {
   expect($period.text()).toContain(year)
 })
 
-it('renders education item period', () => {
+it('renders experience item period', () => {
   const period = [1337, '20XX']
   const wrapper = shallow(<Item period={period} />)
 
@@ -40,6 +40,15 @@ it('renders education item period', () => {
   )
 })
 
+it("renders experience item's tasks list", () => {
+  const tasks = ['Task A', 'Task B']
+  const wrapper = shallow(<Item tasks={tasks} />)
+
+  const $tasks = wrapper.find('.item-content ul li')
+
+  expect($tasks).toHaveLength(tasks.length)
+})
+
 it('respects the theme', () => {
   const theme = {
     primary: '#FFCC00',
@@ -48,16 +57,17 @@ it('respects the theme', () => {
   }
 
   const props = {
-    degree: 'My degree',
-    info: 'My info',
+    label: 'My Label',
+    subtitle: 'My info',
     period: [1337, '20XX'],
+    tasks: ['TaskA', 'TaskB'],
     theme,
   }
 
   const wrapper = mount(<Item {...props} />)
 
   expect(wrapper).toHaveStyleRule('color', theme.primary, {
-    modifier: '.title',
+    modifier: '.label',
   })
 
   expect(wrapper).toHaveStyleRule('color', theme.secondary, {
@@ -66,5 +76,9 @@ it('respects the theme', () => {
 
   expect(wrapper).toHaveStyleRule('color', theme.accent, {
     modifier: '.period',
+  })
+
+  expect(wrapper).toHaveStyleRule('color', theme.accent, {
+    modifier: '.item-content ul li:before',
   })
 })

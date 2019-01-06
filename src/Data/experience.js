@@ -1,6 +1,6 @@
 export default [
   {
-    title: 'Full Stack Python / DevOps',
+    label: 'Full Stack Python / DevOps',
     subtitle: 'United Remote Morocco (Rabat, Morocco)',
     period: ['04/2017', 'Current'],
     tasks: [
@@ -11,7 +11,7 @@ export default [
     ],
   },
   {
-    title: 'Internship',
+    label: 'Internship',
     subtitle: 'Caciopée (Rabat, Morocco)',
     period: ['01/2015', '02/2015'],
     tasks: [
@@ -19,7 +19,7 @@ export default [
     ],
   },
   {
-    title: 'M2N – a 2D multi-platform Game Engine',
+    label: 'M2N – a 2D multi-platform Game Engine',
     subtitle: 'Personal project – C++',
     period: '2014',
     tasks: [
@@ -31,7 +31,7 @@ export default [
     ],
   },
   {
-    title: 'Rockout – a Web-based Guitar Hero clone',
+    label: 'Rockout – a Web-based Guitar Hero clone',
     subtitle: 'Personal project – Javascript / PHP',
     period: '2014',
     tasks: [

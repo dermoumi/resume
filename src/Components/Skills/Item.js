@@ -8,10 +8,10 @@ const StyleBase = styled.article`
     margin-bottom: 0;
   }
 
-  .title {
+  .label {
     font-size: 1.1em;
     letter-spacing: 1px;
-    line-height: 1.5rem;
+    line-height: 1.25rem;
     color: ${props => props.theme.primary};
   }
 
@@ -24,10 +24,10 @@ const StyleBase = styled.article`
 
   .level {
     font-weight: 400;
-    margin-left: 4px;
     font-size: 0.8em;
     letter-spacing: 0;
     white-space: nowrap;
+    line-height: 1.5rem;
     color: ${props => props.theme.accent};
   }
 `
@@ -37,7 +37,7 @@ export default class Item extends Component {
     return (
       <StyleBase {...this.props}>
         <div className="heading">
-          <div className="title">
+          <div className="label">
             {this.props.label} <span className="level">{this.props.level}</span>
           </div>
           <div className="sub-title">{this.props.details}</div>

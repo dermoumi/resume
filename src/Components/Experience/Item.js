@@ -9,10 +9,10 @@ const StyleBase = styled.article`
     margin-bottom: 0;
   }
 
-  .title {
+  .label {
     font-size: 1.1em;
     letter-spacing: 1px;
-    line-height: 1.5rem;
+    line-height: 1.25rem;
     color: ${props => props.theme.primary};
   }
 
@@ -25,7 +25,6 @@ const StyleBase = styled.article`
 
   .period {
     font-weight: 400;
-    margin-left: 8px;
     white-space: nowrap;
     color: ${props => props.theme.accent};
   }
@@ -63,10 +62,7 @@ const StyleBase = styled.article`
 export default class Item extends Component {
   render() {
     let period
-    if (
-      Array.isArray(this.props.period) &&
-      typeof this.props.period[0] === 'string'
-    ) {
+    if (Array.isArray(this.props.period)) {
       period = (
         <Fragment>
           {this.props.period[0]}
@@ -78,21 +74,25 @@ export default class Item extends Component {
       period = this.props.period
     }
 
-    const tasks = this.props.tasks.map((task, i) => (
-      <li key={i} dangerouslySetInnerHTML={{ __html: task }} />
-    ))
+    const tasks =
+      this.props.tasks &&
+      this.props.tasks.map((task, i) => (
+        <li key={i} dangerouslySetInnerHTML={{ __html: task }} />
+      ))
 
     return (
       <StyleBase {...this.props}>
         <div className="heading">
-          <div className="title">{this.props.title}</div>
+          <div className="label">{this.props.label}</div>
           <div className="sub-title">
             {this.props.subtitle} <span className="period">{period}</span>
           </div>
         </div>
-        <div className="item-content">
-          <ul>{tasks}</ul>
-        </div>
+        {tasks && (
+          <div className="item-content">
+            <ul>{tasks}</ul>
+          </div>
+        )}
       </StyleBase>
     )
   }
