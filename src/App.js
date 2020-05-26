@@ -16,6 +16,11 @@ const GlobalStyle = createGlobalStyle`
     min-width: 320px;
   }
 
+  #root {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
   @media print {
     @page {
       margin: 0 0rem;
